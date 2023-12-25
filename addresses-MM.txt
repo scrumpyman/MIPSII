@@ -27,7 +27,7 @@ F2054- revive and end dialog or ocarina
 400898- jump status
 1AF1EC- revive status? 800BB578
 3FF66A- warp transition type
-400834- (first half) trigger navi dialog, e.g. FDE5, low first byte (1FFF) are optional (c-up) dialog
+400834- (first half) trigger navi dialog, e.g. FDE5, positive values (0002) are optional c-up dialog, negative values (-2 = FFFE) open the same text automatically
 
 ---code
 warp (last two 00s indicate warp location)
