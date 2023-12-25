@@ -47,7 +47,7 @@ At the start of the instruction section, the register RA contains the address wh
 ## Commands you can use in the instruction section:
 Keep in mind that these commands generate code in the order that they are listed.
 
-corrupt:"file name or path.bl" -- reads a saved corruption file from RTC and converts it to code that triggers this corruption when the code runs (execute frame, lifetime and loop values are ignored. I could implement these, with some caveats, if there's demand for it)
+corrupt:"file name or path.bl" -- reads a saved corruption file from RTC and converts it to code that triggers this corruption when the code runs (execute frame, lifetime, loop, and store/limiter values are ignored, meaning corruptions from anything other than vector or nightmare engine might not take effect properly. I could implement most of these, with some caveats, if there's demand for it)
 
 code:00000000 -- inserts code here as is, must be 8 characters long
 
