@@ -8,4 +8,3 @@ output # name for .bl output file (created/overwritten by script, in same direct
 0 # Just Jump Flag, set to 1 to jump without linking back, meaning the game won't go back to jump-from address (also enables loading return address register)
 0 # Multiple Outputs Flag, set to 1 to output a .bl file for every new address below, instead of one .bl output jumping multiple times
 # on next line(s), insert jump-to addresses, registers to load, and other instructions (e.g. 8074E624: v1:4 a0:803E6B20, see readme for full functionality)
-sp:ra-16 sp0:sp0+1
