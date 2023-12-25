@@ -100,12 +100,14 @@ N64:
 - Registers are 64 bits but the other half is barely ever used. This script only deals with the first 32 bits. There are also additional registers on a separate processor used for float point operations, which are also not dealt with. I've not had to so far, possibly they are rarely essential.
    
 PSX: 
+- S8 register (second to last) is called FP on this system. This script only accepts S8, so you will need to use S8 if you want to do something with this register.
 - Compact backup is less compact as it requires additional code to circumvent instruction caching (caching is not as strong as N64 normal interpreter, does not prevent activating corruptions). 
 - Bizhawk debugger with PSX core seems to barely work, I recommend using Duckstation to find addresses. (you CAN do the essentials on bizhawk like finding if an address is triggered and output a trace log, but the debugger does not even display the correct information for breakpoints)
 - Registers are 32 bits.
 - In addition to branch/jump delay slots, PSX has load delay slots, meaning the instruction after a load should not use the register being written to, as the load has not yet completed. I think I've dealt with all pertinent cases in the script, but keep that in mind if you add custom code.
    
 PS2:
+- S8 register (second to last) is called FP on this system. This script only accepts S8, so you will need to use S8 if you want to do something with this register.
 - PCSX2 lacks much of the tools available on bizhawk, but has a pretty good debugger with precise interruption and step in/out/over.
 - Registers are 128 bits, not sure how frequently more than 32 bits are used, I've not done much testing on PS2.
 
