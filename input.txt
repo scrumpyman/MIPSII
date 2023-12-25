@@ -1,0 +1,11 @@
+output # name for .bl output file (created/overwritten by script, in same directory)
+0 # Console Selection, 0 = N64, 1 = PSX, 2 = PS2 (changes endian order and memory domain)
+ # address to jump from
+ # address where custom jumper transition code is inserted (~25/70/100 addresses required with no/compact/stable backup, +2 per register load, + other instructions)
+0 # NOT IMPLEMENTED, Number of float point registers to include in backup/restore/load
+0 # Backup Type Flag, 0 = no backup/restore, 1 = Compact Backup (on n64 requires pure interpreter) 2 = Stable Backup (more space required at transition code)
+1 # Move Code Flag, set to 1 to move the code (2 instructions) from jump-from to the start of jump-insert (otherwise the instruction originally at jump-from is skipped)
+0 # Just Jump Flag, set to 1 to jump without linking back, meaning the game won't go back to jump-from address (also enables loading return address register)
+0 # Multiple Outputs Flag, set to 1 to output a .bl file for every new address below, instead of one .bl output jumping multiple times
+# on next line(s), insert jump-to addresses, registers to load, and other instructions (e.g. 8074E624: v1:4 a0:803E6B20, see readme for full functionality)
+sp:ra-16 sp0:sp0+1

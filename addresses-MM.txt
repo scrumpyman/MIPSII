@@ -1,0 +1,40 @@
+---from
+136624- jank sword
+1236F4- sword button
+10A620- L button, cancels map open/close
+76993C- falling
+754BA4- ledge jump
+756D94- fleep
+BAF44- revive and map load
+F2054- revive and end dialog or ocarina
+75DDB0- revive only
+762DDC- triggers once per frame
+12EE4C- every frame if map open
+
+---to
+74E624- arrow, needs arrow id
+166B30- warp, kinda useless, you can just load warp data and warp will happen
+756668- dialog?, again, you can just trigger it with memory
+42AE28- spawn enemy? (I gave up making it work)
+
+---memory
+1EF6A4- hp, and some of the most useful game data like menu items, rupees, time/day, etc, all around that address
+9CC4D- crash indicator?
+3ABAEC- crash pixels
+4000FC- waiting arrow id
+	field arrows: 8041DB80 8041DE10 8041E0A0 8041E330 8041E5C0 8041E850 8041EAE0 80427350 804275E0 80427870 80427B00 80427D90 80428020 804282B0 80428540 804287D0
+1FB870- inputs
+400898- jump status
+1AF1EC- revive status? 800BB578
+3FF66A- warp transition type
+400834- (first half) trigger navi dialog, e.g. FDE5, low first byte (1FFF) are optional (c-up) dialog
+
+---code
+warp (last two 00s indicate warp location)
+    sp:803FF668 spb2:1 sp:803FF398 spb2:00 spb3:00
+death (hp=0)
+    sp:801EF6A4 spb2:00 spb3:00
+skip section if arrows less than 20
+    sp:801EF710 t1:spb1 branch_if_t1<20:1 sp:803FF668 spb2:1 sp:803FF398 spb2:80 spb3:30 branch1:
+counter one row before insert address
+    sp:ra-16 sp0:sp0+1
